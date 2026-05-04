@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porfoli-Gaming</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 12, 41, 0.9) 0%, rgba(48, 43, 99, 0.9) 100%);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .hero.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(123, 47, 247, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.2s ease-out 0.3s, transform 1.2s ease-out 0.3s;
+        }
+
+        .hero.animate h1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero > p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #ddd;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out 0.6s, transform 1s ease-out 0.6s;
+        }
+
+        .hero.animate > p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .games-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out 0.9s, transform 1s ease-out 0.9s;
+        }
+
+        .hero.animate .games-container {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #00aaff;
+            border-radius: 15px;
+            padding: 2rem;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero.animate .game-card {
+            opacity: 1;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 18px 45px rgba(123, 47, 247, 0.35);
+            border-color: #7b2ff7;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            transition-delay: 0s;
+        }
+
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-card h3 {
+            font-size: 1.8rem;
+            margin: 1rem 0;
+            color: #00d4ff;
+            transition: color 0.3s ease;
+        }
+
+        .game-card:hover h3 {
+            color: #7b2ff7;
+        }
+
+        .game-card p {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .game-card button {
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .game-card button a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .game-card button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(123, 47, 247, 0.6);
+        }
+
+        .description {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ddd;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out 2s, transform 1s ease-out 2s;
+        }
+
+        .description.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>🎮 Gaming</h1>
+        <p>Experience my passion for gaming through my top 3 favorite titles</p>
+        
+        <div class="games-container">
+            <div class="game-card">
+                <div class="game-icon">
+                    <img src="mortal_kombat_xl_icon_by_andonovmarko_db2s3pr-375w-2x.png" alt="Mortal Kombat X Icon" width="150" height="150">
+                </div>
+                <h3>Mortal Kombat X</h3>
+                <p>My ultimate favorite! Experience intense fighter combat with jaw-dropping graphics and legendary characters.</p>
+            </div>
+            <div class="game-card">
+                <div class="game-icon">
+                    <img src="call of duty.jpg" alt="Call of Duty Mobile Icon" width="150" height="150">
+                </div>
+                <h3>Call of Duty Mobile</h3>
+                <p>Intense multiplayer action on the go with thrilling COD gameplay and competitive matches.</p>
+                <button><a href="https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter" target="_blank">Play Now</a></button>
+            </div>
+            <div class="game-card">
+                <div class="game-icon">
+                    <img src="Efootball.jpg" alt="eFootball Icon" width="150" height="150">
+                </div>
+                <h3>eFootball</h3>
+                <p>Build your ultimate team and compete in dynamic football matches with players worldwide.</p>
+                <button><a href="https://play.google.com/store/apps/details?id=jp.konami.pesam" target="_blank">Play Now</a></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="description">
+        <p>This section is about my gaming experiences and preferences. I have been an avid gamer for many years, enjoying a wide range of genres from action-adventure to strategy games. Gaming has not only been a source of entertainment but also a way to connect with friends and explore new worlds.</p>
+    </section>
+
+    <script>
+        // Trigger fade-in animations on page load
+        window.addEventListener('load', function() {
+            // Add animate class to hero section
+            const hero = document.querySelector('.hero');
+            const description = document.querySelector('.description');
+            
+            // Trigger hero animations
+            setTimeout(() => {
+                hero.classList.add('animate');
+            }, 100);
+            
+            // Trigger description animation
+            setTimeout(() => {
+                description.classList.add('animate');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
